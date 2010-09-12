@@ -1,0 +1,21 @@
+# HG changeset patch
+# Parent 88c8ffbb40dde8f163b34d5d05e7204cffa35fb5
+# User Dave Townsend <dtownsend@oxymoronical.com>
+# Date 1283218119 25200
+
+[palm] Fix animated zooming in non-e10s
+
+diff --git a/chrome/content/AnimatedZoom.js b/chrome/content/AnimatedZoom.js
+--- a/chrome/content/AnimatedZoom.js
++++ b/chrome/content/AnimatedZoom.js
+@@ -68,8 +68,8 @@ function AnimatedZoom(aBrowserView) {
+   this.snapshotRect.width = Math.min(this.snapshotRect.width, this.snapshot.width);
+   this.snapshotRect.height = Math.min(this.snapshotRect.height, this.snapshot.height);
+ 
+-  let snapshotCtx = this.snapshot.MozGetIPCContext("2d")
+-  snapshotCtx.clearRect(0, 0, this.snapshotRect.width, this.snapshotRect.height);
++  let snapshotCtx = this.snapshot.getContext("2d")
++  //snapshotCtx.clearRect(0, 0, this.snapshotRect.width, this.snapshotRect.height);
+   this.bv.renderToCanvas(this.snapshot, this.snapshotRect.width, this.snapshotRect.height, this.snapshotRect.clone());
+ 
+   let remote = !this.bv.getBrowser().contentWindow;

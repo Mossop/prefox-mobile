@@ -1,0 +1,23 @@
+# HG changeset patch
+# Parent c01f14b44882594b76888daee3041ddd54c15847
+# User Dave Townsend <dtownsend@oxymoronical.com>
+# Date 1283218155 25200
+
+[palm] Support forward/back gesture commands
+
+diff --git a/chrome/content/browser-ui.js b/chrome/content/browser-ui.js
+--- a/chrome/content/browser-ui.js
++++ b/chrome/content/browser-ui.js
+@@ -723,6 +723,12 @@ var BrowserUI = {
+           case "Search":
+             this.doCommand("cmd_openLocation");
+             break;
++          case "Back":
++            this.doCommand("cmd_back");
++            break;
++          case "Forward":
++            this.doCommand("cmd_forward");
++            break;
+           default:
+             break;
+         }

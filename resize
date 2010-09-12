@@ -1,0 +1,21 @@
+# HG changeset patch
+# Parent e4e18093222350b2e53a8c0350593a5bb98daf82
+# User Dave Townsend <dtownsend@oxymoronical.com>
+# Date 1283218219 25200
+
+[palm] Make sure the UI resizes properly on startup
+
+diff --git a/chrome/content/browser.js b/chrome/content/browser.js
+--- a/chrome/content/browser.js
++++ b/chrome/content/browser.js
+@@ -574,6 +574,10 @@ var Browser = {
+     let event = document.createEvent("Events");
+     event.initEvent("UIReady", true, false);
+     window.dispatchEvent(event);
++
++    // Maybe the widget code isn't sending a resize event when it needs to, this
++    // makes sure the UI gets sized correctly
++    resizeHandler({ target: window });
+   },
+ 
+   _waitingToClose: false,

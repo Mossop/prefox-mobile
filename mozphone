@@ -1,0 +1,21 @@
+# HG changeset patch
+# Parent 7ee1a66c6dea4de8fd9f2b6e9fd08a952614e86d
+# User Dave Townsend <dtownsend@oxymoronical.com>
+# Date 1284233909 25200
+
+[palm] Disabling building mozphone
+
+diff --git a/components/Makefile.in b/components/Makefile.in
+--- a/components/Makefile.in
++++ b/components/Makefile.in
+@@ -79,8 +79,10 @@ EXTRA_COMPONENTS += AlertsService.js
+ endif
+ 
+ ifneq (Android,$(OS_TARGET))
++ifndef WEBOS
+ DIRS =  phone \
+         $(NULL)
+ endif
++endif
+ 
+ include $(topsrcdir)/config/rules.mk
