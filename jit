@@ -1,0 +1,20 @@
+# HG changeset patch
+# Parent 22b0b3b65e0ebb3535effdfbcdbc37b7210aba62
+# Date 1284831787 25200
+
+[palm] Disable method jit
+
+diff --git a/app/mobile.js b/app/mobile.js
+--- a/app/mobile.js
++++ b/app/mobile.js
+@@ -354,8 +354,8 @@ pref("content.sink.perf_parse_time", 500
+ pref("content.sink.interactive_time", 0);
+ pref("content.sink.initial_perf_time", 0);
+ 
+-pref("javascript.options.jit.content", true);
+-pref("javascript.options.jit.chrome", true);
++pref("javascript.options.methodjit.chrome",  false);
++pref("javascript.options.methodjit.content",  false);
+ pref("javascript.options.mem.gc_frequency", 300);
+ 
+ pref("dom.max_chrome_script_run_time", 30);
